@@ -13,48 +13,144 @@ from owlready2 import *
 onto = get_ontology("http://each.br/amazing_videos.owl")
 
 with onto:
-    # Classe base
     class Pessoa(Thing): pass
 
-    # Subclasses
     class Ator(Pessoa): pass
     class Diretor(Pessoa): pass
     class Usuario(Pessoa): pass
 
-    # Demais classes
-    class Filme(Thing): pass
+    class Titulo(Thing): pass
+    class Genero(Thing): pass   
     class Avaliacao(Thing): pass
     class Preferencia(Thing): pass
+    class TituloAlternativo(Thing): pass
+    class PapelPrincipal(Thing): pass
 
-    # DataProperties de Pessoa
-    class nome(DataProperty, FunctionalProperty): domain = [Pessoa]; range = [str]
-    class anoNascimento(DataProperty, FunctionalProperty): domain = [Pessoa]; range = [int]
-    class anoMorte(DataProperty, FunctionalProperty): domain = [Pessoa]; range = [int]
 
-    # DataProperties de Filme
-    class titulo(DataProperty, FunctionalProperty): domain = [Filme]; range = [str]
-    class ano(DataProperty, FunctionalProperty): domain = [Filme]; range = [int]
-    class categoria(DataProperty, FunctionalProperty): domain = [Filme]; range = [str]
-    class nota(DataProperty, FunctionalProperty): domain = [Filme, Avaliacao]; range = [float]
-    class quantidadeVotos(DataProperty, FunctionalProperty): domain = [Filme]; range = [int]
+with onto: 
+    class nome(DataProperty, FunctionalProperty): #conjunto name.basics.tsv.gz
+        domain = [Pessoa]
+        range = [str]
 
-    # DataProperties de Usuario e Avaliação
-    class nomeUsuario(DataProperty, FunctionalProperty): domain = [Usuario]; range = [str]
-    class generoPreferido(DataProperty, FunctionalProperty): domain = [Preferencia]; range = [str]
-    class comentario(DataProperty, FunctionalProperty): domain = [Avaliacao]; range = [str]
+    class ano_nascimento(DataProperty, FunctionalProperty): #conjunto name.basics.tsv.gz
+        domain = [Pessoa]
+        range = [int]
 
-    # ObjectProperties
-    class temDiretor(ObjectProperty): domain = [Filme]; range = [Diretor]
-    class atuaEm(ObjectProperty): domain = [Ator]; range = [Filme]
+    class ano_morte(DataProperty, FunctionalProperty): #conjunto name.basics.tsv.gz
+        domain = [Pessoa]
+        range = [int]
 
-    class temPreferencia(ObjectProperty): domain = [Usuario]; range = [Preferencia]
-    class realizouAvaliacao(ObjectProperty): domain = [Usuario]; range = [Avaliacao]
-    class avaliou(ObjectProperty): domain = [Avaliacao]; range = [Filme]
+with onto:
+    class titulo(DataProperty, FunctionalProperty): #title.basics.tsv.gz
+        domain = [Titulo]
+        range = [str]
+
+    class ano(DataProperty, FunctionalProperty): #title.basics.tsv.gz
+        domain = [Titulo]
+        range = [int]
+
+    class nota(DataProperty, FunctionalProperty): #title.ratings.tsv.gz
+        domain = [Titulo, Avaliacao]
+        range = [float]
+
+    class quantidade_votos(DataProperty, FunctionalProperty): #title.ratings.tsv.gz
+        domain = [Titulo]
+        range = [int]
+
+    class nome_genero(DataProperty, FunctionalProperty): #title.basics.tsv.gz
+        domain = [Genero]
+        range = [str]
+
+
+with onto:
+    class nome_usuario(DataProperty, FunctionalProperty): #cadastro de usuários
+        domain = [Usuario]
+        range = [str]
+
+    class genero_preferido(DataProperty, FunctionalProperty): #cadastro de usuários
+        domain = [Preferencia]
+        range = [str]
+
+    class nota_usuario(DataProperty, FunctionalProperty): #cadastro de usuários
+        domain = [Avaliacao]
+        range = [float]
+
+    class avaliador(ObjectProperty): #cadastro de usuários
+        domain = [Avaliacao]
+        range = [Usuario]
+
+    class filme_avaliado(ObjectProperty): #cadastro de usuários
+        domain = [Avaliacao]
+        range = [Titulo]
+
+
+with onto:
+    class tem_diretor(ObjectProperty): #title.crew.tsv.gz
+        domain = [Titulo]
+        range = [Diretor]
+
+    class atua_em(ObjectProperty): #title.principals.tsv.gz
+        domain = [Ator]
+        range = [Titulo]
+ 
+    class tem_preferencia(ObjectProperty): #cadastro de usuários
+        domain = [Usuario]
+        range = [Preferencia]
+
+    class realizou_avaliacao(ObjectProperty): #cadastro de usuários
+        domain = [Usuario]
+        range = [Avaliacao]
+
+    class avaliou(ObjectProperty): #cadastro de usuários
+        domain = [Avaliacao]
+        range = [Titulo]
+
+
+    #inversas
+
+    class dirige(ObjectProperty): pass
+    tem_diretor.inverse_property = dirige
+
+    class tem_ator(ObjectProperty): pass
+    atua_em.inverse_property = tem_ator
+
+    class avaliador(ObjectProperty): pass
+    realizou_avaliacao.inverse_property = avaliador
+
+    class foi_avaliado_por(ObjectProperty): pass
+    avaliou.inverse_property = foi_avaliado_por
+
+with onto:
+    class tem_genero(ObjectProperty):
+        domain = [Titulo]
+        range = [Genero]
+
+    class tem_avaliacao(ObjectProperty):
+        domain = [Titulo]
+        range = [Avaliacao]
+
+    class tem_titulo_alternativo(ObjectProperty):
+        domain = [Titulo]
+        range = [TituloAlternativo]
+
+    class nota_media(DataProperty, FunctionalProperty):
+        domain = [Titulo]
+        range = [float]
+
+    class total_votos(DataProperty, FunctionalProperty):
+        domain = [Titulo]
+        range = [int]
+
+    Titulo.is_a.append(tem_genero.min(1, Genero))
+    Titulo.is_a.append(tem_avaliacao.min(1, Avaliacao))
+
+    Avaliacao.equivalent_to.append(Avaliacao & (nota_media.exactly(1, float)))
+
 
 ################################################################################
 
-onto.save(file="./ontology/amazing_videos_v2.rdf", format="rdfxml")
-onto.save(file="./ontology/amazing_videos_v2.ttl", format="turtle")
+onto.save(file="./ontology/amazing_videos.rdf", format="rdfxml")
+onto.save(file="./ontology/amazing_videos.ttl", format="turtle")
 
 print("Ontologia criada e salva com sucesso.")
 

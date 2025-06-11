@@ -1,0 +1,3039 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://each.br/amazing_videos.owl"
+         xmlns="http://each.br/amazing_videos.owl#">
+
+<owl:Ontology rdf:about="http://each.br/amazing_videos.owl"/>
+
+<owl:ObjectProperty rdf:about="#avaliador">
+  <rdfs:domain rdf:resource="#Avaliacao"/>
+  <rdfs:range rdf:resource="#Usuario"/>
+  <owl:inverseOf rdf:resource="#realizou_avaliacao"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#realizou_avaliacao">
+  <rdfs:domain rdf:resource="#Usuario"/>
+  <rdfs:range rdf:resource="#Avaliacao"/>
+  <owl:inverseOf rdf:resource="#avaliador"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#filme_avaliado">
+  <rdfs:domain rdf:resource="#Avaliacao"/>
+  <rdfs:range rdf:resource="#Titulo"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#tem_diretor">
+  <rdfs:domain rdf:resource="#Titulo"/>
+  <rdfs:range rdf:resource="#Diretor"/>
+  <owl:inverseOf rdf:resource="#dirige"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#dirige">
+  <owl:inverseOf rdf:resource="#tem_diretor"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#atua_em">
+  <rdfs:domain rdf:resource="#Ator"/>
+  <rdfs:range rdf:resource="#Titulo"/>
+  <owl:inverseOf rdf:resource="#tem_ator"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#tem_ator">
+  <owl:inverseOf rdf:resource="#atua_em"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#tem_preferencia">
+  <rdfs:domain rdf:resource="#Usuario"/>
+  <rdfs:range rdf:resource="#Preferencia"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#avaliou">
+  <rdfs:domain rdf:resource="#Avaliacao"/>
+  <rdfs:range rdf:resource="#Titulo"/>
+  <owl:inverseOf rdf:resource="#foi_avaliado_por"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#foi_avaliado_por">
+  <owl:inverseOf rdf:resource="#avaliou"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#tem_genero">
+  <rdfs:domain rdf:resource="#Titulo"/>
+  <rdfs:range rdf:resource="#Genero"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#tem_avaliacao">
+  <rdfs:domain rdf:resource="#Titulo"/>
+  <rdfs:range rdf:resource="#Avaliacao"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#tem_titulo_alternativo">
+  <rdfs:domain rdf:resource="#Titulo"/>
+  <rdfs:range rdf:resource="#TituloAlternativo"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#nome">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Pessoa"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#ano_nascimento">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Pessoa"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#ano_morte">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Pessoa"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#titulo">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Titulo"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#ano">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Titulo"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#nota">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Titulo"/>
+  <rdfs:domain rdf:resource="#Avaliacao"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#quantidade_votos">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Titulo"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#nome_genero">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Genero"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#nome_usuario">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Usuario"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#genero_preferido">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Preferencia"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#nota_usuario">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Avaliacao"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#nota_media">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Titulo"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#total_votos">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Titulo"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Avaliacao">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Avaliacao"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#nota_media"/>
+          <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+          <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Usuario">
+  <rdfs:subClassOf rdf:resource="#Pessoa"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Titulo">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#tem_genero"/>
+      <owl:onClass rdf:resource="#Genero"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#tem_avaliacao"/>
+      <owl:onClass rdf:resource="#Avaliacao"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Diretor">
+  <rdfs:subClassOf rdf:resource="#Pessoa"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Ator">
+  <rdfs:subClassOf rdf:resource="#Pessoa"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Preferencia">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Genero">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TituloAlternativo">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Pessoa">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PapelPrincipal">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000001">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fred Astaire</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1899</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1987</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000002">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lauren Bacall</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1924</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2014</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000003">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brigitte Bardot</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1934</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000004">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John Belushi</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1949</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1982</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000005">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ingmar Bergman</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1918</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2007</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000006">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ingrid Bergman</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1915</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1982</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000007">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Humphrey Bogart</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1899</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1957</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000008">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marlon Brando</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1924</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2004</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000009">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Richard Burton</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1925</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1984</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000010">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">James Cagney</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1899</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1986</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000011">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gary Cooper</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1901</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1961</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000012">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bette Davis</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1908</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1989</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000013">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Doris Day</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1922</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2019</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000014">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Olivia de Havilland</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1916</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2020</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000015">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">James Dean</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1931</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1955</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000016">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Georges Delerue</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1925</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1992</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000017">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marlene Dietrich</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1901</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1992</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000018">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kirk Douglas</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1916</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2020</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000019">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Federico Fellini</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1920</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1993</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000020">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Henry Fonda</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1905</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1982</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000021">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Joan Fontaine</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1917</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2013</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000022">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Clark Gable</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1901</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1960</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000023">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Judy Garland</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1922</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1969</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000024">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John Gielgud</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1904</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2000</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000025">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jerry Goldsmith</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1929</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2004</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000026">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cary Grant</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1904</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1986</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000027">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alec Guinness</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1914</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2000</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000028">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rita Hayworth</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1918</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1987</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000029">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Margaux Hemingway</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1954</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1996</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000030">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Audrey Hepburn</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1929</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1993</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000031">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Katharine Hepburn</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1907</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2003</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000032">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Charlton Heston</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1923</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2008</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000033">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alfred Hitchcock</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1899</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1980</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000034">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">William Holden</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1918</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1981</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000035">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">James Horner</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1953</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2015</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000036">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Buster Keaton</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1966</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000037">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gene Kelly</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1912</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1996</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000038">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Grace Kelly</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1929</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1982</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000039">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Deborah Kerr</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1921</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2007</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000040">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Stanley Kubrick</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1928</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1999</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000041">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Akira Kurosawa</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1910</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1998</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000042">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alan Ladd</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1913</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1964</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000043">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Veronica Lake</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1922</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1973</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000044">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Burt Lancaster</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1913</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1994</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000045">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bruce Lee</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1940</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1973</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000046">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vivien Leigh</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1913</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1967</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000047">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sophia Loren</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1934</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000048">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Peter Lorre</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1904</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1964</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000049">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Henry Mancini</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1924</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1994</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000050">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Groucho Marx</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1890</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1977</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000051">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">James Mason</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1909</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1984</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000052">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marcello Mastroianni</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1924</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1996</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000053">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Robert Mitchum</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1917</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1997</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000054">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marilyn Monroe</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1926</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1962</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000055">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alfred Newman</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1900</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1970</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000056">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Paul Newman</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1925</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2008</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000057">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">David Niven</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1910</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1983</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000058">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Maureen O'Hara</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1920</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2015</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000059">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Laurence Olivier</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1907</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1989</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000060">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gregory Peck</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1916</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2003</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000061">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tyrone Power</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1914</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1958</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000062">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Elvis Presley</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1935</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1977</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000063">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Anthony Quinn</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1915</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2001</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000064">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Edward G. Robinson</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1893</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1973</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000065">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nino Rota</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1911</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1979</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000066">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jane Russell</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1921</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2011</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000067">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Miklós Rózsa</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1907</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1995</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000068">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Randolph Scott</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1898</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1987</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000069">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Frank Sinatra</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1915</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1998</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000070">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Max Steiner</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1888</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1971</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000071">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">James Stewart</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1908</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1997</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000072">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Elizabeth Taylor</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1932</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2011</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000073">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Shirley Temple</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1928</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2014</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000074">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gene Tierney</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1920</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1991</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000075">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spencer Tracy</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1900</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1967</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000076">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">François Truffaut</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1932</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1984</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000077">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Franz Waxman</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1906</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1967</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000078">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John Wayne</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1907</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1979</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000079">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Raquel Welch</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1940</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2023</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000080">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Orson Welles</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1915</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1985</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000081">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Natalie Wood</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1938</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1981</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000082">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Victor Young</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1899</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1956</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000083">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alan Miller</nome>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000084">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gong Li</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1965</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000085">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Henner Hofmann</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1950</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000086">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Louis de Funès</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1914</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1983</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000087">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Elena Koreneva</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1953</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000088">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aleksey Korenev</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1927</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1995</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000089">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Richard Paul</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1940</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1998</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000090">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Armin Mueller-Stahl</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1930</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000091">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gérard Pirès</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1942</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000092">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John Cleese</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1939</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000093">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brad Pitt</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1963</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000094">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">J. Reifel</nome>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000095">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Woody Allen</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1935</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000096">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gillian Anderson</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1968</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000097">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pamela Anderson</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1967</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000098">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jennifer Aniston</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1969</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000099">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Patricia Arquette</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1968</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000100">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rowan Atkinson</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1955</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000101">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dan Aykroyd</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1952</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000102">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kevin Bacon</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1958</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000103">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fairuza Balk</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1974</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000104">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Antonio Banderas</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1960</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000105">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Adrienne Barbeau</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1945</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000106">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Drew Barrymore</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1975</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000107">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kim Basinger</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1953</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000108">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Luc Besson</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1959</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000109">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Yasmine Bleeth</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1968</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000110">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kenneth Branagh</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1960</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000111">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Matthew Broderick</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1962</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000112">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pierce Brosnan</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1953</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000113">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sandra Bullock</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1964</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000114">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Steve Buscemi</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1957</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000115">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nicolas Cage</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1964</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000116">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">James Cameron</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1954</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000117">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Neve Campbell</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1973</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000118">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John Carpenter</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1948</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000119">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tia Carrere</nome>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000120">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jim Carrey</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1962</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000121">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Phoebe Cates</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1963</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000122">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Charles Chaplin</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1889</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1977</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000123">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">George Clooney</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1961</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000124">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jennifer Connelly</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1970</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000125">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sean Connery</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1930</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2020</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000126">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kevin Costner</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1955</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000127">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wes Craven</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1939</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2015</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000128">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Russell Crowe</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1964</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000129">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tom Cruise</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1962</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000130">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jamie Lee Curtis</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1958</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000131">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John Cusack</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1966</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000132">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Claire Danes</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1979</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000133">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Geena Davis</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1956</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000134">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Robert De Niro</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1943</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000135">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John Denver</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1943</ano_nascimento>
+  <ano_morte rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1997</ano_morte>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000136">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Johnny Depp</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1963</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000137">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bo Derek</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1956</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000138">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Leonardo DiCaprio</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1974</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000139">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cameron Diaz</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1972</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000140">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Michael Douglas</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1944</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000141">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">David Duchovny</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1960</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000142">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Clint Eastwood</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1930</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000143">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Erika Eleniak</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1969</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000144">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cary Elwes</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1962</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000145">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sherilyn Fenn</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1965</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000146">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ralph Fiennes</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1962</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000147">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Colin Firth</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1960</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000148">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Harrison Ford</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1942</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000149">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jodie Foster</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1962</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#pessoa_nm0000150">
+  <rdf:type rdf:resource="#Pessoa"/>
+  <nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Michael J. Fox</nome>
+  <ano_nascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1961</ano_nascimento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c_tt0000001">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carmencita</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1894</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.7</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.7</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2155</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2155</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#genero_documentary">
+  <rdf:type rdf:resource="#Genero"/>
+  <nome_genero rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Documentary</nome_genero>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#genero_short">
+  <rdf:type rdf:resource="#Genero"/>
+  <nome_genero rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Short</nome_genero>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#l_tt0000002">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_animation"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Le clown et ses chiens</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1892</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">292</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">292</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#genero_animation">
+  <rdf:type rdf:resource="#Genero"/>
+  <nome_genero rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Animation</nome_genero>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#p_tt0000003">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_animation"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_romance"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Poor Pierrot</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1892</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2189</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2189</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#genero_comedy">
+  <rdf:type rdf:resource="#Genero"/>
+  <nome_genero rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Comedy</nome_genero>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#genero_romance">
+  <rdf:type rdf:resource="#Genero"/>
+  <nome_genero rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Romance</nome_genero>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#u_tt0000004">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_animation"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Un bon bock</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1892</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.3</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.3</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">187</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">187</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b_tt0000005">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Blacksmith Scene</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1893</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.2</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.2</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2937</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2937</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c_tt0000006">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chinese Opium Den</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1894</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">211</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">211</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c_tt0000007">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <tem_genero rdf:resource="#genero_sport"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Corbett and Courtney Before the Kinetograph</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1894</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.3</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.3</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">911</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">911</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#genero_sport">
+  <rdf:type rdf:resource="#Genero"/>
+  <nome_genero rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sport</nome_genero>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#e_tt0000008">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Edison Kinetoscopic Record of a Sneeze</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1894</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.4</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.4</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2295</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2295</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#m_tt0000009">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_romance"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Miss Jerry</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1894</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.4</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.4</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">223</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">223</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#l_tt0000010">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Leaving the Factory</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.8</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.8</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7954</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7954</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#a_tt0000011">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Akrobatisches Potpourri</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.2</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.2</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">419</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">419</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000012">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Arrival of a Train</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">7.4</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">7.4</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13471</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13471</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000013">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Photographical Congress Arrives in Lyon</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.7</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.7</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2069</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2069</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000014">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Waterer Watered</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">7.1</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">7.1</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6159</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6159</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#a_tt0000015">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_animation"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Around a Cabin</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1894</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.1</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.1</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1275</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1275</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b_tt0000016">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Boat Leaving the Port</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.9</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.9</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1660</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1660</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#i_tt0000017">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italienischer Bauerntanz</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">380</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">380</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#d_tt0000018">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <tem_genero rdf:resource="#genero_sport"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Das boxende Känguruh</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.2</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.2</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">663</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">663</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000019">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Clown Barber</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1898</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.2</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.2</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000020">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <tem_genero rdf:resource="#genero_sport"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Derby 1895</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.7</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.7</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">413</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">413</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b_tt0000022">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Blacksmith Scene</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.1</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.1</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1214</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1214</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000023">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Sea</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.7</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.7</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1589</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1589</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#o_tt0000024">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_news"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Opening of the Kiel Canal</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.7</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.7</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">160</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">160</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#genero_news">
+  <rdf:type rdf:resource="#Genero"/>
+  <nome_genero rdf:datatype="http://www.w3.org/2001/XMLSchema#string">News</nome_genero>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000025">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_news"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <tem_genero rdf:resource="#genero_sport"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Oxford and Cambridge University Boat Race</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.2</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.2</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000026">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Messers. Lumière at Cards</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.6</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.6</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1677</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1677</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c_tt0000027">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cordeliers' Square in Lyon</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.6</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.6</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1274</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1274</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#f_tt0000028">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fishing for Goldfish</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.1</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.1</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1201</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1201</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b_tt0000029">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Baby's Meal</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.9</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.9</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3679</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3679</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#r_tt0000030">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rough Sea at Dover</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.2</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.2</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">962</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">962</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#j_tt0000031">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jumping the Blanket</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1097</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1097</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#d_tt0000032">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Die Serpentintänzerin</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.9</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.9</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">461</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">461</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#h_tt0000033">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Horse Trick Riders</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1895</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1134</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1134</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#a_tt0000034">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Arrivée d'un train gare de Vincennes</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.8</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.8</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">253</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">253</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#w_tt0000035">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Watering the Flowers</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">87</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">87</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#a_tt0000036">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_drama"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Awakening of Rip</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.4</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.4</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">654</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">654</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#genero_drama">
+  <rdf:type rdf:resource="#Genero"/>
+  <nome_genero rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Drama</nome_genero>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#s_tt0000037">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sea Bathing</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">79</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">79</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000038">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <tem_genero rdf:resource="#genero_sport"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Ball Game</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1898</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.1</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.1</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">235</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">235</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b_tt0000039">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Barnet Horse Fair</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.6</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.6</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b_tt0000040">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Barque sortant du port de Trouville</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.2</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.2</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">82</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">82</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b_tt0000041">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bataille de neige</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.7</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.7</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2119</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2119</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b_tt0000042">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bateau-mouche sur la Seine</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.2</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.2</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b_tt0000043">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Batteuse à vapeur</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#l_tt0000044">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Le bivouac</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.0</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.0</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">56</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">56</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#l_tt0000045">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Les blanchisseuses</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.0</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.0</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b_tt0000046">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bois de Boulogne</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.1</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.1</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b_tt0000047">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Boulevard des Italiens</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.6</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.6</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000048">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Boxing Kangaroo</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">234</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">234</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b_tt0000049">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <tem_genero rdf:resource="#genero_sport"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Boxing Match; or, Glove Contest</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.8</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.8</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b_tt0000050">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bébé et fillettes</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.1</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.1</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000051">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Bohemian Encampment</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.6</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.6</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#r_tt0000052">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ruraux au galop</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.1</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.1</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">124</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">124</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#a_tt0000053">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Chegada do Comboio Inaugural à Estação Central do Porto</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.4</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.4</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#a_tt0000054">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Merry-Go-Round</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.9</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.9</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#l_tt0000055">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Le chiffonnier</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.8</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.8</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#u_tt0000056">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Uma Corrida de Touros no Campo Pequeno</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.0</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.0</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c_tt0000057">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cortège de tzar allant à Versailles</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.3</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.3</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c_tt0000058">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cortège de tzar au Bois de Boulogne</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.3</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.3</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c_tt0000059">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Coronation of a Village Maiden</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#d_tt0000060">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dancing Darkies</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">7.1</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">7.1</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">94</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">94</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#d_tt0000061">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dancing Girls</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.3</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.3</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#d_tt0000062">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Danse serpentine</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.1</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.1</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">223</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">223</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#d_tt0000063">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dessinateur express</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.4</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.4</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">31</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">31</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#d_tt0000064">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dessinateur: Chamberlain</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.1</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.1</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#d_tt0000065">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dessinateur: Reine Victoria</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.4</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.4</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#d_tt0000066">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dessinateur: Von Bismark</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.3</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.3</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c_tt0000067">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_fantasy"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Conjurer Making Ten Hats in Sixty Seconds</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.2</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.2</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">95</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">95</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#genero_fantasy">
+  <rdf:type rdf:resource="#Genero"/>
+  <nome_genero rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fantasy</nome_genero>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#u_tt0000068">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unloading the Boat</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.8</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.8</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#p_tt0000069">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Post No Bills</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.9</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.9</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">548</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">548</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#d_tt0000070">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Demolition of a Wall</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.4</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.4</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2890</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2890</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#a_tt0000071">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <tem_genero rdf:resource="#genero_sport"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Automobiles Starting a Race</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.4</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.4</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#o_tt0000072">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Officers of French Army Leaving Service</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.6</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.6</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#e_tt0000073">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Effets de mer sur les rochers</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#e_tt0000074">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enfants jouant sur la plage</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000075">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_horror"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Conjuring of a Woman at the House of Robert Houdin</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.3</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.3</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2168</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2168</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#genero_horror">
+  <rdf:type rdf:resource="#Genero"/>
+  <nome_genero rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Horror</nome_genero>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#e_tt0000076">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_drama"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Exit of Rip and the Dwarf</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.4</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.4</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">587</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">587</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#l_tt0000077">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Le fakir, mystère indien</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#f_tt0000078">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Feira de Gado na Corujeira</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.6</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.6</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">112</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">112</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#l_tt0000079">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">La gare Saint-Lazare</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#g_tt0000080">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Grandes manoeuvres</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.1</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.1</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000081">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Towing a Boat on the River</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.1</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.1</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#a_tt0000082">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Hard Wash</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#l_tt0000083">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Les indiscrets</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#l_tt0000084">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Les ivrognes</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.4</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.4</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#g_tt0000085">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gardener Burning Weeds</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.7</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.7</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b_tt0000086">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Beach and Pier at Trouville, 1st part</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.2</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.2</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b_tt0000087">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Beach and Pier at Trouville, 2nd part</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.8</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.8</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#m_tt0000088">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Market Day</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.3</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.3</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#l_tt0000089">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Leaving Jerusalem by Railway</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.2</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.2</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1103</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1103</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#l_tt0000090">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Libération des territoriaux</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.8</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.8</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000091">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_horror"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The House of the Devil</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.7</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.7</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4309</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4309</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#m_tt0000092">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marée montante sur Brise-Larmes</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#m_tt0000093">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Melbourne</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#m_tt0000094">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Miss de Vere</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.3</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.3</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">56</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">56</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000095">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Mysterious Paper</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.8</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.8</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#p_tt0000096">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Place Saint-Augustin</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#p_tt0000097">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Place de l'Opéra, First View</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.9</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.9</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#p_tt0000098">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Place de l'Opéra, Second View</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.3</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.3</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#p_tt0000099">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Place de la Bastille</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.7</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.7</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#p_tt0000100">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Place de la Concorde</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.7</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.7</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#p_tt0000101">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Place du théâtre français</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">31</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">31</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000102">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Beach at Villiers in a Gale</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.7</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.7</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">29</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">29</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#s_tt0000103">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Smarter than the Teacher</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#p_tt0000104">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pompiers à Lyon</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">501</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">501</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000105">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Docks at Marseilles</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#r_tt0000106">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Retour au cantonnement</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">26</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">26</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#n_tt0000107">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Naval Review at Cherburg</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.3</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.3</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">31</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">31</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#r_tt0000108">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_drama"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rip Leaving Sleepy Hollow</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.4</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.4</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">591</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">591</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#r_tt0000109">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_fantasy"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rip Meeting the Dwarf</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">575</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">575</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#r_tt0000110">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_fantasy"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rip Passing Over the Mountain</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.3</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.3</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">582</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">582</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#r_tt0000111">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_drama"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rip's Toast</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.4</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.4</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">596</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">596</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#r_tt0000112">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_fantasy"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rip's Toast to Hudson</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">569</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">569</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#r_tt0000113">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_drama"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rip's Twenty Years' Sleep</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.3</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.3</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">596</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">596</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#f_tt0000114">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">French Regiment Going to the Parade</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.1</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.1</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#r_tt0000115">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Réunion d'officiers</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.9</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.9</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#s_tt0000116">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sac au dos</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.2</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.2</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#s_tt0000117">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Saída do Pessoal Operário da Fábrica Confiança</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">188</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">188</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#s_tt0000118">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Salut malencontreux d'un déserteur</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.8</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.8</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">47</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">47</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#r_tt0000119">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rescue on the River, Pt. 2</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.9</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.9</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">76</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">76</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#r_tt0000120">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rescue on the River, Pt. 1</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.7</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.7</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000121">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Soldier's Courtship</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.3</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.3</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">123</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">123</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c_tt0000122">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Closing Hours at Vibert's Perfume Factory</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.1</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.1</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c_tt0000123">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Conjuring</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.4</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.4</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">202</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">202</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000124">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tempête sur la jetée du treport</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.3</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.3</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000125">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Terrible Railway Accident</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000126">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tom Old Boot</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.8</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.8</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#l_tt0000127">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Les tribulations d'un concierge</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.4</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.4</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#a_tt0000128">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Academy for Young Ladies</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#u_tt0000129">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Un petit diable</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#u_tt0000130">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Une altercation au café</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.1</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.1</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">31</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">31</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#a_tt0000131">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_horror"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Terrible Night</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.7</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.7</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1643</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1643</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c_tt0000132">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_biography"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Card Party</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.1</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.1</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1215</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1215</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#genero_biography">
+  <rdf:type rdf:resource="#Genero"/>
+  <nome_genero rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Biography</nome_genero>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#l_tt0000133">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">La voiture du potier</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.3</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.3</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000134">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_music"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Wandering Negro Minstrels</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#genero_music">
+  <rdf:type rdf:resource="#Genero"/>
+  <nome_genero rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Music</nome_genero>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#a_tt0000135">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Watermelon Feast</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1896</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.2</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.2</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">89</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">89</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#a_tt0000137">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Au réfectoire</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.9</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.9</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000138">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Bewitched Inn</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.4</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.4</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1314</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1314</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#l_tt0000139">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_drama"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">L'aveugle</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.3</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.3</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">29</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">29</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b_tt0000140">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Baignade dans le torrent</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.9</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.9</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">346</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">346</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b_tt0000141">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ballet libella</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.1</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.1</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">147</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">147</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b_tt0000142">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_news"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Buffalo Bill and Escort</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.2</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.2</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#l_tt0000143">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Les cambrioleurs</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">303</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">303</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#c_tt0000144">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chez le magnétiseur</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.2</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.2</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">378</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">378</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#e_tt0000145">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En classe</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.6</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.6</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#l_tt0000146">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Le cocher de fiacre endormi</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000147">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_news"/>
+  <tem_genero rdf:resource="#genero_sport"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Corbett-Fitzsimmons Fight</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.3</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.3</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">558</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">558</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#l_tt0000148">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Le Coucher d'Yvette</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.4</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.4</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b_tt0000149">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_comedy"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Behind the Scenes</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.8</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.8</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#d_tt0000150">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_documentary"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Danse fleur de lotus</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.4</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.4</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">203</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">203</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#f_tt0000151">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Faust et Marguerite</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.6</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">77</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">77</total_votos>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#t_tt0000152">
+  <rdf:type rdf:resource="#Titulo"/>
+  <tem_genero rdf:resource="#genero_fantasy"/>
+  <tem_genero rdf:resource="#genero_horror"/>
+  <tem_genero rdf:resource="#genero_short"/>
+  <titulo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Hallucinated Alchemist</titulo>
+  <ano rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1897</ano>
+  <nota rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.2</nota>
+  <nota_media rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.2</nota_media>
+  <quantidade_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">316</quantidade_votos>
+  <total_votos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">316</total_votos>
+</owl:NamedIndividual>
+
+
+</rdf:RDF>
